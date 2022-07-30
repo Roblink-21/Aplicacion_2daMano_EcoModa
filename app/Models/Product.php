@@ -2,12 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasImage;
+
+    protected $fillable = ['name', 'slug', 'details', 'price', 'description', 'category_id'];
+
+    // public function getRouteKeyName()
+    // {
+    //     return "slug";
+    // }
 
     //Relacion uno a muchos inversa
     public function user(){
@@ -29,5 +37,6 @@ class Product extends Model
     {
         return $this->morphOne(Image::class,'imageable');
     }
+    
 
 }
