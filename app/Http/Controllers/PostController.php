@@ -172,7 +172,6 @@ class PostController extends Controller
     public function mi_car()
     {
 
-        $products = Product::all();
         $user = Auth::user();
 
         $user_list = $user->listProd;
